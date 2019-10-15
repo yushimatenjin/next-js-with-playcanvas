@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import pc from 'playcanvas'
 import styled from 'styled-components'
-import {createButton} from '../utils/createButton'
 const Canvas = styled.canvas`
-    height: 40vh;
-    width: 40vw;
+    height: 100vh;
+    width: 100vw;
 `
 
 const Types = styled.div`
@@ -12,7 +11,7 @@ const Types = styled.div`
 `
 const ModelType = styled.span`
     margin: 5px;
-    border: 1px solid #333;
+    border: 4px solid #333;
     :hover{
         font-size: 1.5rem;
     }
@@ -49,8 +48,6 @@ const Page = () => {
             const light = new pc.Entity('light');
             light.addComponent('light');
 
-            const button = createButton("START", 0, 0, true);
-            app.root.addChild(button)
             // add to hierarchy
             app.root.addChild(cube);
             app.root.addChild(camera);
@@ -86,7 +83,7 @@ const Page = () => {
         </Types>
         <h2>Canvas</h2>
         <h2>Model Type: {modelType}</h2>
-
+        <h3>Speed</h3>
         <input type="text"
             defaultValue={speed}
             onChange={
